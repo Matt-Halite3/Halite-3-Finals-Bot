@@ -3,18 +3,11 @@ import hlt
 import math
 import time as ptime
 import numpy as np
-import cython
 
-# This library contains constant values.
 from hlt import constants
-
-
-# This library contains direction metadata to better interface with the game.
 from hlt.positionals import Direction
 from hlt.positionals import Position
-
 import logging #logs games
-
 
 gohome = {} #contains boolean values for whether or not a ship should drop off materials
 hasmove = {} #contains boolean values for whether or not a ship has a move yet
@@ -23,15 +16,13 @@ ship_target = {}  # contains a target for each ship sorted by list degree
 dropoff_ships = {} #how many ships have been sent to drop off area
 expensive = [] #sites of likely collisions
 
-
 """ <<<Game Begin>>> """
 game = hlt.Game()
 
-game.ready("Old bot") # Starts the game. Only two seconds per turn.
+game.ready("New Bot") # Starts the game. Only two seconds per turn.
 logging.info("Successfully created bot! My Player ID is {}.".format(game.my_id)) # Logs ID
 
 """ <<<Game Loop>>> """
-
 raw_values = np.zeros((game.game_map.width, game.game_map.height)) #contains halite amount * inspiration for every tile
 
 while True:
